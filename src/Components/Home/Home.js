@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { increment,decrement,incrementByAmount } from '../../features/counter/counter';
+import Users from '../Users/users';
 
 function Home() {
 const dispatch = useDispatch();
 const count = useSelector(state=>state.counter.value);
-const [incrementAmount,setIncrementAmount]=useState('1');
+// console.log(useSelector(state=>state))
+const [incrementAmount,setIncrementAmount]=useState('');
 
 const onIncreasingByAmount =(e)=>{
     e.preventDefault();
@@ -28,6 +30,8 @@ return(
         <button onClick={()=>dispatch(decrement())}>Decrement</button>
 
         <div>{count}</div>
+
+        <Users />
     </div>
   )
 }
